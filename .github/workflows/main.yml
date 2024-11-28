@@ -28,10 +28,13 @@ jobs:
             sickcodes/docker-osx:latest
       - name: clean
         run: |
+          # install homebrew
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          
           # install fastlane
           docker exec -i darwin-on-docker brew install fastlane
           docker exec -i darwin-on-docker brew install xcodesorg/made/xcodes
-          
+
           docker exec -i darwin-on-docker cd /workspace && fastlane run xcodes version:"15.3"
           docker exec -i darwin-on-docker xcodebuild -version
           docker exec -i darwin-on-docker cd /workspace && ls
