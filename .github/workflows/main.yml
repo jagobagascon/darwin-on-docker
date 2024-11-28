@@ -20,12 +20,9 @@ jobs:
             --name darwin-on-docker \
             -p 50922:10022 \
             -e GENERATE_UNIQUE=true \
-            -e CPU='Haswell-noTSX' \
-            -e CPUID_FLAGS='kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on' \
-            -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom-sonoma.plist' \
             -e SHORTNAME=sonoma \
             -v $(pwd):/workspace \
-            sickcodes/docker-osx:latest
+            sickcodes/docker-osx:auto
       - name: clean
         run: |
           # install homebrew
