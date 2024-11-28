@@ -29,8 +29,10 @@ jobs:
       - name: clean
         run: |
           # install homebrew
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          
+          docker exec -i darwin-on-docker /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+          # add homebrew to path
+
           # install fastlane
           docker exec -i darwin-on-docker brew install fastlane
           docker exec -i darwin-on-docker brew install xcodesorg/made/xcodes
