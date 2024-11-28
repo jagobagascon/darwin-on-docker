@@ -29,7 +29,7 @@ jobs:
       - name: clean
         run: |
           # install homebrew
-          docker exec -i darwin-on-docker cat Xcode-Tutorial.md
-          docker exec -i darwin-on-docker ls /workspace
+          docker exec -i darwin-on-docker ls -al /
+          docker exec -i darwin-on-docker ls -al /workspace
           docker exec -i darwin-on-docker /workspace/build.sh
           docker stop darwin-on-docker
