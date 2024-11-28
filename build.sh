@@ -3,6 +3,9 @@
 set -e
 set -u
 
+BASEDIR=$(dirname "$0")
+
+
 # install homebrew
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -19,6 +22,6 @@ set -u
 #brew install fastlane
 
 # download xcodes
-./xcodes-multi version 15.3
+"$(BASEDIR)/xcodes-multi" version 15.3
 
 xcodebuild -version
