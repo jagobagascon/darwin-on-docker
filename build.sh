@@ -22,6 +22,6 @@ BASEDIR=$(dirname "$0")
 #brew install fastlane
 
 # download xcodes
-"$(BASEDIR)/xcodes-multi" version 15.3
+"${BASEDIR}/xcodes-multi" version 15.3
 
 xcodebuild -version
