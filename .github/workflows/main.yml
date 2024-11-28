@@ -29,15 +29,5 @@ jobs:
       - name: clean
         run: |
           # install homebrew
-          docker exec -i darwin-on-docker /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-          # add homebrew to path
-
-          # install fastlane
-          docker exec -i darwin-on-docker brew install fastlane
-          docker exec -i darwin-on-docker brew install xcodesorg/made/xcodes
-
-          docker exec -i darwin-on-docker cd /workspace && fastlane run xcodes version:"15.3"
-          docker exec -i darwin-on-docker xcodebuild -version
-          docker exec -i darwin-on-docker cd /workspace && ls
+          docker exec -i darwin-on-docker /workspace/build.sh
           docker stop darwin-on-docker
