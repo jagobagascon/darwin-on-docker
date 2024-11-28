@@ -29,6 +29,6 @@ jobs:
       - name: clean
         run: |
           # install homebrew
-          docker exec -i darwin-on-docker /workspace/build.sh
           docker exec -i darwin-on-docker ls
+          docker exec -i darwin-on-docker /workspace/build.sh
           docker stop darwin-on-docker
