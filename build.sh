@@ -19,10 +19,11 @@ set -u
 #brew install xcodesorg/made/xcodes
 
 # download xcodes
-curl -L https://github.com/XcodesOrg/xcodes/releases/download/1.6.0/xcodes-1.6.0.arm64_mojave.bottle.tar.gz -o xcodes.tar.gz
+curl -L https://github.com/XcodesOrg/xcodes/releases/download/1.6.0/xcodes-1.6.0.mojave.bottle.tar.gz -o xcodes.tar.gz
 tar -xvf xcodes.tar.gz
-mv xcodes /usr/local/bin
+mv xcodes/1.6.0/bin/xcodes /usr/local/bin
 chmod +x /usr/local/bin/xcodes
+rm -r xcodes
 rm xcodes.tar.gz
 
 xcodes version 15.3
