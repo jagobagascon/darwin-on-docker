@@ -24,9 +24,15 @@ jobs:
             -e CPUID_FLAGS='kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on' \
             -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom-sonoma.plist' \
             -e SHORTNAME=sonoma \
+            -v $(pwd):/workspace \
             sickcodes/docker-osx:latest
       - name: clean
         run: |
+          # install fastlane
+          docker exec -i darwin-on-docker brew install fastlane
+          docker exec -i darwin-on-docker brew install xcodesorg/made/xcodes
+          
+          docker exec -i darwin-on-docker cd /workspace && fastlane run xcodes version:"15.3"
           docker exec -i darwin-on-docker xcodebuild -version
-          docker exec -i darwin-on-docker ls
+          docker exec -i darwin-on-docker cd /workspace && ls
           docker stop darwin-on-docker
