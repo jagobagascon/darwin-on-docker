@@ -27,6 +27,6 @@ jobs:
             sickcodes/docker-osx:latest
       - name: clean
         run: |
-          docker exec -i darwin-on-docker xcode-select -p
+          docker exec -i darwin-on-docker xcodebuild -version
           docker exec -i darwin-on-docker ls
           docker stop darwin-on-docker
