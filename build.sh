@@ -5,7 +5,7 @@ set -u
 
 BASEDIR=$(dirname "$0")
 
-
+sw_vers
 # install homebrew
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
