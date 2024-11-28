@@ -1,0 +1,31 @@
+name: "Darwin on Docker test"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: init
+        run: |
+          docker run -d --rm \
+            --device /dev/kvm \
+            --name darwin-on-docker \
+            -p 50922:10022 \
+            -e GENERATE_UNIQUE=true \
+            -e CPU='Haswell-noTSX' \
+            -e CPUID_FLAGS='kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on' \
+            -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom-sonoma.plist' \
+            -e SHORTNAME=sonoma \
+            sickcodes/docker-osx:latest
+      - name: clean
+        run: |
+          docker exec -i darwin-on-docker ls
+          docker stop darwin-on-docker
