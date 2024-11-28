@@ -12,7 +12,7 @@ set -u
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Install Homebrew's dependencies if you have sudo access:
-sudo pacman -S base-devel
+sudo pacman --noconfirm -S base-devel
 
 # install fastlane
 brew install fastlane
