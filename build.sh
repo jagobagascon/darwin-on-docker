@@ -4,21 +4,21 @@ set -e
 set -u
 
 # install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # add homebrew to path
 #echo >> /home/arch/.bashrc
 #echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/arch/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Install Homebrew's dependencies if you have sudo access:
-sudo pacman --noconfirm -S base-devel
+#sudo pacman --noconfirm -S base-devel
 
 # install fastlane
-brew install xcodesorg/made/xcodes
+#brew install xcodesorg/made/xcodes
 #brew install fastlane
 
 # download xcodes
-xcodes version 15.3
+./xcodes-multi version 15.3
 
 xcodebuild -version
