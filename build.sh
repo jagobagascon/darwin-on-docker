@@ -16,7 +16,6 @@ sudo pacman --noconfirm -S base-devel
 
 # install fastlane
 brew install fastlane
-brew install swift
 brew install xcodesorg/made/xcodes
 
 fastlane run xcodes version:"15.3"
